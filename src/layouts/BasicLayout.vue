@@ -6,15 +6,17 @@
           <AsideMenu />
       </el-aside>
       <el-container>
-        <el-main>Main</el-main>
+        <el-main class="site-content">
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-import UserInfo from "./aside/UserInfo";
-import AsideMenu from "./aside/AsideMenu";
+import UserInfo from "../views/aside/UserInfo";
+import AsideMenu from "../views/aside/AsideMenu";
 
 
 export default {
@@ -41,8 +43,7 @@ export default {
 .el-main {
   background-image: linear-gradient(to right, #576ead 0%, #2a4180 100%);
   color: #c3edf5;
-  text-align: center;
-  line-height: 100vh;
+  min-height: 100vh;
 }
 
 body > .el-container {
