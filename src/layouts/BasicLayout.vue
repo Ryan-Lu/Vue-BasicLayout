@@ -43,7 +43,6 @@ export default {
 .el-main {
   background-image: linear-gradient(to right, #576ead 0%, #2a4180 100%);
   color: #c3edf5;
-  text-align: center;
   min-height: 100vh;
 }
 
