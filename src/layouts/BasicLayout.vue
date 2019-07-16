@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import UserInfo from "./aside/UserInfo";
-import AsideMenu from "./aside/AsideMenu";
+import UserInfo from "../views/aside/UserInfo";
+import AsideMenu from "../views/aside/AsideMenu";
 
 
 export default {
