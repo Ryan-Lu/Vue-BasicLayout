@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BasicLayout from "./views/BasicLayout";
+import BasicLayout from "../src/layouts/BasicLayout";
 
 export default {
   name: "app",
@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style>
-#app {
+html, body {
+  margin: 0;
 }
 </style>

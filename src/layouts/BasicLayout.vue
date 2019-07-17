@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import UserInfo from "./aside/UserInfo";
-import AsideMenu from "./aside/AsideMenu";
+import UserInfo from "../views/aside/UserInfo";
+import AsideMenu from "../views/aside/AsideMenu";
 
 
 export default {
@@ -32,7 +32,7 @@ export default {
 <style>
 .el-aside {
   background-image: linear-gradient(to top, #334c92 0%, #334c90 100%);
-  color: #c3edf5;
+  color: #fff;
   text-align: center;
   padding-top: 50px;
   line-height: 25px;
@@ -40,9 +40,8 @@ export default {
 
 .el-main {
   background-image: linear-gradient(to right, #576ead 0%, #2a4180 100%);
-  color: #c3edf5;
-  text-align: center;
-  line-height: 100vh;
+  color: #fff;
+  height: 100vh;
 }
 
 body > .el-container {
