@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard'
 import Monitor from './components/Monitor'
 import TaskList from './components/TaskList'
 import Settings from './components/Settings'
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
