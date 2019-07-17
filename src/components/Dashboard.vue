@@ -1,5 +1,6 @@
 <template>
   <div class="dashboard">
+    {{getUserInfo}}
     <h1>Disk Monitoring</h1>
     <div class="main-box">
       <Card :percent="percent1" :title="title1" :used="used1" :total="total1" color="linear-gradient(60deg, #20CFF1 0%, #1CD4F3 100%)"></Card>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+  import {mapGetters, mapActions} from 'vuex'
 import Card from "./Card";
 
 export default {
@@ -36,6 +38,11 @@ export default {
       total3: "A total of 25GB",
       total4: "A total of 25GB"
     };
+  },
+  computed: {
+    ...mapGetters([
+            'getUserInfo'
+    ])
   }
 };
 </script>
