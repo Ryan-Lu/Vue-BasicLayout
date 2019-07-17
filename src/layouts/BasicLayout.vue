@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style>
+h1 {
+  padding-left: 20px;
+}
 .el-aside {
   background-image: linear-gradient(to top, #334c92 0%, #334c90 100%);
   color: #fff;
@@ -44,6 +47,7 @@ export default {
   background-image: linear-gradient(to right, #576ead 0%, #2a4180 100%);
   color: #fff;
   height: 100vh;
+  padding: 0;
 }
 
 body > .el-container {
