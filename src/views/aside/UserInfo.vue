@@ -9,6 +9,8 @@
 
 
 <script>
+    import {mapActions} from 'vuex'
+
     export default {
         name: "UserInfo",
         data() {
@@ -30,12 +32,18 @@
 
             } else {
                 this.userInfo = obj.data.userInfo
+                setTimeout(() => {
+                    this.updateUserInfo(this.userInfo)
+                }, 2000)
             }
         },
         components: {
 
         },
         methods: {
+            ...mapActions([
+                'updateUserInfo'
+            ]),
             x() {
                 // 这里是模拟后端返回的一个函数
                 return {
