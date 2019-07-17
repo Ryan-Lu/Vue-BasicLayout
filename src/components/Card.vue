@@ -27,6 +27,10 @@ export default {
     },
     total: {
       type: String
+    },
+    percent: {
+      type: Number,
+      default: 0
     }
   },
   computed: {
@@ -74,7 +78,7 @@ export default {
           hoverAnimation: false,
           data: [
             {
-              value: 60,
+              value: this.percent,
               // name: '01',
               itemStyle: {
                 normal: {
@@ -102,7 +106,7 @@ export default {
             },
             {
               // name: '02',
-              value: 40
+              value: 100 - this.percent
             }
           ]
         }

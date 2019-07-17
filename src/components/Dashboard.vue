@@ -2,10 +2,10 @@
   <div class="dashboard">
     <h1>Disk Monitoring</h1>
     <div class="main-box">
-      <Card :title="title1" :used="used1" :total="total1" color="linear-gradient(60deg, #20CFF1 0%, #1CD4F3 100%)"></Card>
-      <Card :title="title2" :used="used2" :total="total2" color="linear-gradient(60deg, #475ED5 0%, #7655E7 100%)"></Card>
-      <Card :title="title3" :used="used3" :total="total3" color="linear-gradient(60deg, #0B9CE8 0%, #185BCF 100%)"></Card>
-      <Card :title="title4" :used="used4" :total="total4" color="linear-gradient(60deg, #E46941 0%, #fe5196 100%)"></Card>
+      <Card :percent="percent1" :title="title1" :used="used1" :total="total1" color="linear-gradient(60deg, #20CFF1 0%, #1CD4F3 100%)"></Card>
+      <Card :percent="percent2" :title="title2" :used="used2" :total="total2" color="linear-gradient(60deg, #475ED5 0%, #7655E7 100%)"></Card>
+      <Card :percent="percent3" :title="title3" :used="used3" :total="total3" color="linear-gradient(60deg, #0B9CE8 0%, #185BCF 100%)"></Card>
+      <Card :percent="percent4" :title="title4" :used="used4" :total="total4" color="linear-gradient(60deg, #E46941 0%, #fe5196 100%)"></Card>
     </div>
   </div>
 </template>
@@ -19,6 +19,10 @@ export default {
   },
   data() {
     return {
+      percent1: 11.3/25*100,
+      percent2: 38/50*100,
+      percent3: 23.4/25*100,
+      percent4: 17.6/25*100,
       title1: "sda1",
       title2: "sda2",
       title3: "sda3",
