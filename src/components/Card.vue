@@ -5,7 +5,7 @@
       <div class="pie" ref="chartDom"></div>
       <div class="info">
         <div class="used">{{used}}</div>
-        <div class="total">{{total}}}</div>
+        <div class="total">{{total}}</div>
       </div>
     </div>
   </div>
@@ -83,11 +83,11 @@ export default {
                     colorStops: [
                       {
                         offset: 0,
-                        color: "#00cefc" // 0% 处的颜色
+                        color: "#E5FDE9" // 0% 处的颜色
                       },
                       {
                         offset: 1,
-                        color: "#367bec" // 100% 处的颜色
+                        color: "#E5FDE9" // 100% 处的颜色
                       }
                     ]
                   },
@@ -125,13 +125,13 @@ export default {
   position: absolute;
 }
 .title {
-  font-size: 20px;
-  padding: 20px 0 20px 30px;
+  font-size: 22px;
+  padding: 15px 0 15px 30px;
   border-bottom: 0.5px solid #B0C4DE;
 }
 .pie {
   display: inline-block;
-  padding-top: 15px;
+  padding-top: 20px;
   padding-left: 10px;
   width: 100px;
   height: 100px;

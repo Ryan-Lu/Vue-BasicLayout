@@ -45,4 +45,8 @@ export default {
     height: 200px;
     display: inline-block;
 }
+h1 {
+    font-size: 24px;
+    font-weight: normal;
+}
 </style>
