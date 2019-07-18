@@ -1,14 +1,14 @@
 <template>
-  <div class="card-box">
     <div class="card" :style="styles">
       <div class="title">{{title}}</div>
-      <div class="pie" ref="chartDom"></div>
-      <div class="info">
-        <div class="used">{{used}}</div>
-        <div class="total">{{total}}</div>
+      <div class="infoBox">
+        <div class="pie" ref="chartDom"></div>
+        <div class="info">
+          <div class="used">{{used}}</div>
+          <div class="total">{{total}}</div>
+        </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -118,41 +118,32 @@ export default {
 </script>
 
 <style>
-.card-box + .card-box {
-  margin-left: 15px;
-}
-.card-box {
-  width: 250px;
-  height: 200px;
-  display: inline-block;
-}
 .card {
-  width: 250px;
-  height: 200px;
-  display: inline-block;
-  margin-left: 30px;
-  /* background-image: linear-gradient(120deg, #428fc2 0%, #66a6ff 100%); */
   box-shadow: 0px 0px 4px #333333;
   border-radius: 2px;
+    padding-bottom: 20px;
 }
 .title {
   font-size: 22px;
   padding: 15px 0 15px 30px;
-  border-bottom: 0.5px solid #b0c4de;
+  border-bottom: 1px solid #b0c4de;
+}
+.infoBox {
+    margin-top: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
 }
 .pie {
-  display: inline-block;
-  padding-top: 20px;
-  padding-left: 10px;
   width: 100px;
   height: 100px;
 }
 .info {
-  display: inline-block;
-  padding-left: 20px;
-  padding-bottom: 40px;
-  top: -30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .used {
   font-size: 20px;
   font-weight: bold;
