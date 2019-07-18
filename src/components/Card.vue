@@ -4,7 +4,7 @@
         <div class="infoBox">
             <div class="pie" ref="chartDom"></div>
             <div class="info">
-                <div class="used">{{used}}</div>
+                <div class="used" :class="classes">{{used}}</div>
                 <div class="total">{{total}}</div>
             </div>
         </div>
@@ -33,6 +33,12 @@
                 default: 0
             }
         },
+        data () {
+            return {
+                classes: {},
+                timer: null
+            }
+        },
         computed: {
             styles() {
                 return {
@@ -41,6 +47,7 @@
             }
         },
         mounted() {
+            this._staring()
             const myChart = echarts.init(this.$refs.chartDom);
             var option = {
                 title: {
@@ -113,6 +120,34 @@
                 ]
             };
             myChart.setOption(option);
+        },
+        methods: {
+            _toggleClass () {
+                if (this.classes.red && this.classes.blue) {
+                    this.classes = {
+                    }
+                } else if (this.classes.red) {
+                    this.classes = {
+                        'red': true,
+                        'blue': true
+                    }
+                } else {
+                    this.classes = {
+                        'red': true,
+                    }
+                }
+            },
+            _staring() {
+                const that = this
+              this.timer = setInterval(function ()  {
+                  that._toggleClass()
+              }, 250)
+                console.log(this.timer)
+            }
+        },
+        beforeDestroy() {
+            console.log(`执行 destroy ${this.timer}`)
+            window.clearTimeout(this.timer)
         }
     };
 </script>
@@ -144,10 +179,10 @@
                     font-size: 20px;
                     font-weight: bold;
                     padding-bottom: 10px;
-                    &:hover {
+                    &.red {
                         color: red;
                     }
-                    &:active {
+                    &.blue {
                         color: blue;
                     }
                 }
