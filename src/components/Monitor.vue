@@ -47,6 +47,15 @@
                     width="180">
             </el-table-column>
         </el-table>
+
+        <el-pagination
+                background
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                layout="total, sizes, prev, pager, next, jumper"
+                :page-size="pageSize"
+                :total="total">
+        </el-pagination>
     </div>
 </template>
 
@@ -55,22 +64,36 @@
     export default {
         data() {
             return {
-                tableData: []
+                total: 0,
+                tableData: [],
+                pageNo: 1,
+                pageSize: 5
             }
         },
         mounted() {
             this._getData()
         },
         methods: {
+            handleSizeChange(val) {
+                this.pageNo = 1
+                this.pageSize = val
+                this._getData()
+            },
+            handleCurrentChange (val) {
+                console.log(val)
+                this.pageNo = val
+                this._getData()
+            },
             _getData() {
                 Request.ajax({
                     url: "/table/list",
                     // url: '/test/exception',
                     // method: 'post',
-                    data: { params: { page: 1 } }
+                    data: { params: { page: this.pageNo, pageSize: this.pageSize } }
                 })
                     .then(response => {
                         console.log(response.data.items)
+                        this.total = response.data.total
                         this.tableData = response.data.items
                     });
             }
