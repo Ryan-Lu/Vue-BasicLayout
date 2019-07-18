@@ -1,6 +1,9 @@
 <template>
   <div class="dashboard">
-    <h1>Disk Monitoring</h1>
+    <div class="top">
+      <h1>Disk Monitoring</h1>
+      <span>{{getUserInfo}}</span>
+    </div>
     <div class="main-box">
       <Card :percent="percent1" :title="title1" :used="used1" 
       :total="total1" color="linear-gradient(60deg, #20CFF1 0%, #1CD4F3 100%)"></Card>
@@ -16,6 +19,7 @@
 
 <script>
 import Card from "./Card";
+import {mapGetters} from "vuex"
 
 export default {
   components: {
@@ -40,6 +44,15 @@ export default {
       total3: "A total of 25GB",
       total4: "A total of 25GB"
     };
+  },
+  computed: {
+    ...mapGetters([
+      'getUserInfo'
+    ])
+  },
+  mounted() {
+    console.log('userInfo')
+     console.log(this.getUserInfo)
   }
 };
 </script>
@@ -53,8 +66,15 @@ export default {
     height: 200px;
     display: inline-block;
 }
+
 h1 {
     font-size: 24px;
     font-weight: normal;
+    display: inline-block;
+}
+.top > span {
+  float: right;
+  padding-top: 28px;
+  padding-right: 20px;
 }
 </style>

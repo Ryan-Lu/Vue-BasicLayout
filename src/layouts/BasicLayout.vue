@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- {{getUserInfo}} -->
     <el-container>
       <el-aside width="200px">
           <UserInfo />
@@ -17,7 +18,7 @@
 <script>
 import UserInfo from "../views/aside/UserInfo";
 import AsideMenu from "../views/aside/AsideMenu";
-
+import {mapGetters} from "vuex"
 
 export default {
   name: "BasicLayout",
@@ -27,6 +28,11 @@ export default {
   components: {
     UserInfo,
     AsideMenu
+  },
+  computed: {
+    ...mapGetters([
+      'getUserInfo'
+    ])
   }
 };
 </script>

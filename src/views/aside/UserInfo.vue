@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="userInfo.avatarUrl">
+        <img class="asideAvatar" :src="userInfo.avatarUrl">
         <span class="name">{{userInfo.userName}}</span>
         <br>
         <span class="email">{{userInfo.userEmail}}</span>
@@ -48,7 +48,7 @@ export default {
 
 
 <style>
-img {
+.asideAvatar {
     width: 80px;
     height: 80px;
     display: block;

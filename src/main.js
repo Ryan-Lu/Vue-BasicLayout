@@ -7,7 +7,7 @@ import Dashboard from './components/Dashboard'
 import Monitor from './components/Monitor'
 import TaskList from './components/TaskList'
 import Settings from './components/Settings'
-import store from '../src/store'
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -27,5 +27,5 @@ const router = new VueRouter({
 new Vue({
   render: h => h(App),
   router,
-  store,
+  store
 }).$mount('#app')
