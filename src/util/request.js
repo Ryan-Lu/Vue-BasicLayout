@@ -23,6 +23,7 @@ export default class Axios {
                             type: 'error',
                             duration: 1500
                         })
+                        reject(data)
                     }
                 } else {
                     reject(data)

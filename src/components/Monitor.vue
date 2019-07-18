@@ -2,6 +2,7 @@
     <div class="monitor-content">
         Monitor
         <el-table
+                v-loading="loading"
                 class="lu-table"
                 :data="tableData"
                 :max-height="500"
@@ -64,6 +65,7 @@
     export default {
         data() {
             return {
+                loading: false,
                 total: 0,
                 tableData: [],
                 pageNo: 1,
@@ -85,17 +87,22 @@
                 this._getData()
             },
             _getData() {
+                this.loading = true
                 Request.ajax({
-                    url: "/table/list",
-                    // url: '/test/exception',
+                    // url: "/table/list",
+                    url: '/test/exception',
                     // method: 'post',
                     data: { params: { page: this.pageNo, pageSize: this.pageSize } }
                 })
                     .then(response => {
+                        this.loading = false
                         console.log(response.data.items)
                         this.total = response.data.total
                         this.tableData = response.data.items
-                    });
+                    })
+                    .catch(() => {
+                        this.loading = false
+                    })
             }
         }
     }
