@@ -134,7 +134,6 @@ export default {
   /* background-image: linear-gradient(120deg, #428fc2 0%, #66a6ff 100%); */
   box-shadow: 0px 0px 4px #333333;
   border-radius: 2px;
-  position: absolute;
 }
 .title {
   font-size: 22px;
@@ -152,7 +151,6 @@ export default {
   display: inline-block;
   padding-left: 20px;
   padding-bottom: 40px;
-  position: relative;
   top: -30px;
 }
 .used {
