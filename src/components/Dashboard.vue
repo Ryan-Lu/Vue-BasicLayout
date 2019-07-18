@@ -2,7 +2,10 @@
   <div class="dashboard">
     <div class="top">
       <h1>Disk Monitoring</h1>
-      <span>{{getUserInfo}}</span>
+      
+        <span>{{getUserInfo.userName}}</span>
+        <img class="top-avatar" :src="getUserInfo.avatarUrl" alt="">
+      
     </div>
     <div class="main-box">
       <Card :percent="percent1" :title="title1" :used="used1" 
@@ -50,14 +53,19 @@ export default {
       'getUserInfo'
     ])
   },
-  mounted() {
-    console.log('userInfo')
-     console.log(this.getUserInfo)
-  }
 };
 </script>
 
 <style>
+.top-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  float: right;
+  margin: 28px 10px;
+  box-shadow: rgba(96, 96, 172, 0.8) 0px 0px 1px 2px;
+}
+
 .box + .box {
   margin-left: 15px;
 }
@@ -74,7 +82,7 @@ h1 {
 }
 .top > span {
   float: right;
-  padding-top: 28px;
-  padding-right: 20px;
+  padding: 30px 30px 0 0;
+  font-size: 14px;
 }
 </style>

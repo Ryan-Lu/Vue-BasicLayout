@@ -9,6 +9,8 @@
 
 
 <script>
+import {mapActions} from 'vuex'
+
 export default {
   name: "UserInfo",
   data() {
@@ -24,12 +26,16 @@ export default {
       const obj = this.x()
       if(obj.code === 0) {
           this.userInfo = obj.data.userInfo
+          this.updateUserInfo(this.userInfo)
       }
   },
   components: {
 
   },
   methods: {
+      ...mapActions([
+          'updateUserInfo'
+      ]),
       x() {
           return {
               code: 0,
