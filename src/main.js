@@ -5,7 +5,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import Dashboard from './components/Dashboard'
 import Monitor from './components/Monitor'
-import TaskList from './components/Task-List'
+import TaskList from './components/TaskList'
 import Settings from './components/Settings'
 
 Vue.config.productionTip = false
