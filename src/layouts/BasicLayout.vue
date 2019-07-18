@@ -3,8 +3,8 @@
     <!-- {{getUserInfo}} -->
     <el-container>
       <el-aside width="200px">
-          <UserInfo />
-          <AsideMenu />
+        <UserInfo />
+        <AsideMenu />
       </el-aside>
       <el-container>
         <el-main>
@@ -18,21 +18,17 @@
 <script>
 import UserInfo from "../views/aside/UserInfo";
 import AsideMenu from "../views/aside/AsideMenu";
-import {mapGetters} from "vuex"
+import { mapGetters } from "vuex";
 
 export default {
   name: "BasicLayout",
-  props: {
-
-  },
+  props: {},
   components: {
     UserInfo,
     AsideMenu
   },
   computed: {
-    ...mapGetters([
-      'getUserInfo'
-    ])
+    ...mapGetters(["getUserInfo"])
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="card-box">
     <div class="card" :style="styles">
       <div class="title">{{title}}</div>
       <div class="pie" ref="chartDom"></div>
@@ -118,6 +118,14 @@ export default {
 </script>
 
 <style>
+.card-box + .card-box {
+  margin-left: 15px;
+}
+.card-box {
+  width: 250px;
+  height: 200px;
+  display: inline-block;
+}
 .card {
   width: 250px;
   height: 200px;
@@ -131,7 +139,7 @@ export default {
 .title {
   font-size: 22px;
   padding: 15px 0 15px 30px;
-  border-bottom: 0.5px solid #B0C4DE;
+  border-bottom: 0.5px solid #b0c4de;
 }
 .pie {
   display: inline-block;
