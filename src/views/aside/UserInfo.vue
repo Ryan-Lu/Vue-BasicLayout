@@ -1,9 +1,9 @@
 <template>
     <div>
-        <img :src="avatar">
-        <span class="name">RyanLu</span>
+        <img :src="userInfo.avatarUrl">
+        <span class="name">{{userInfo.userName}}</span>
         <br>
-        <span class="email">229239531@qq.com</span>
+        <span class="email">{{userInfo.userEmail}}</span>
     </div>
 </template>
 
@@ -13,11 +13,35 @@ export default {
   name: "UserInfo",
   data() {
       return {
-          avatar: require('../../img/avatar1.jpg')
+          userInfo: {
+              avatarUrl: '',
+              userName: '',
+              userEmail: '',
+          },
+      }
+  },
+  created() {
+      const obj = this.x()
+      if(obj.code === 0) {
+          this.userInfo = obj.data.userInfo
       }
   },
   components: {
 
+  },
+  methods: {
+      x() {
+          return {
+              code: 0,
+              data: {
+                  userInfo: {
+                      avatarUrl:'https://cdn.nlark.com/yuque/0/2019/png/416562/1563420420707-16096278-5e3c-491b-9280-6099e2139720.png',
+                      userName: 'Ryan-Lu',
+                      userEmail: '229239531@qq.com'
+                  }
+              }
+          }
+      }
   }
 };
 </script>
