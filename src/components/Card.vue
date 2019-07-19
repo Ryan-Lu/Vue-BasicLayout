@@ -117,38 +117,38 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .card {
   box-shadow: 0px 0px 4px #333333;
   border-radius: 2px;
   padding-bottom: 20px;
-}
-.title {
-  font-size: 22px;
-  padding: 15px 0 15px 30px;
-  border-bottom: 1px solid #b0c4de;
-}
-.infoBox {
-  margin-top: 20px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-.pie {
-  width: 100px;
-  height: 100px;
-}
-.info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.used {
-  font-size: 20px;
-  font-weight: bold;
-  padding-bottom: 10px;
-}
-.total {
-  font-size: 12px;
+  .title {
+    font-size: 22px;
+    padding: 15px 0 15px 30px;
+    border-bottom: 1px solid #b0c4de;
+  }
+  .infoBox {
+    margin-top: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .pie {
+    width: 100px;
+    height: 100px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .used {
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+    .total {
+      font-size: 12px;
+    }
+  }
 }
 </style>
