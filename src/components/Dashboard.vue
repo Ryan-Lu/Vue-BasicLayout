@@ -319,17 +319,17 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
 .cardLine {
-    padding-left: 9px;
-    display: flex;
-    justify-content: space-around;
-}
-.cardBox + .cardBox {
+  padding-left: 9px;
+  display: flex;
+  justify-content: space-around;
+  .cardBox + .cardBox {
     margin-left: 15px;
-}
-.cardBox {
+  }
+  .cardBox {
     width: 20%;
+  }
 }
 .top-avatar {
   width: 22px;
