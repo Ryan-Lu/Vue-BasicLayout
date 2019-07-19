@@ -1,6 +1,6 @@
 <template>
   <div class="monitor-content">
-    <el-table class="lu-table" :data="tableData" :max-height="550">
+    <el-table class="lu-table" v-loading="loading" :data="tableData" :max-height="550">
       <el-table-column prop="username" label="姓名" width="180"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
       <el-table-column prop="birthday" label="生日" width="180"></el-table-column>
@@ -25,6 +25,7 @@ import request from "../util/request";
 export default {
   data() {
     return {
+      loading: false,
       tableData: [],
       total: 0,
       pageNo: 1,
@@ -45,6 +46,7 @@ export default {
       this._getData();
     },
     _getData() {
+      this.loading = true;
       request
         .ajax({
           //   url: "/test/exception",
@@ -52,8 +54,12 @@ export default {
           data: { params: { page: this.pageNo, pageSize: this.pageSize } }
         })
         .then(response => {
-          this.total = response.data.total
-          this.tableData = response.data.items
+          this.loading = false;
+          this.total = response.data.total;
+          this.tableData = response.data.items;
+        })
+        .catch(() => {
+          this.loading = flase;
         });
     }
   }
@@ -62,15 +68,15 @@ export default {
 
 <style>
 .lu-table {
-  margin-top: 25px;
-  margin-left: 25px;
+  margin-top: 20px;
+  margin-left: 20px;
   /* box-shadow: 0px 0px 4px #551d1d; */
   border-radius: 2px;
   width: 96%;
 }
 .el-pagination {
   float: right;
-  font-weight:normal;
+  font-weight: normal;
   padding: 25px;
 }
 .el-pagination__total {

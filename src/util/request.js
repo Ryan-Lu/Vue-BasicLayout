@@ -23,6 +23,7 @@ export default class Axios {
                             message: data.msg,
                             type: 'error'
                         })
+                        reject(data)
                     }
                 } else {
                     reject(data)
