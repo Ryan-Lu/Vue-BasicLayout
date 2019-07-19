@@ -321,7 +321,7 @@ export default {
 
 <style lang="scss">
 .cardLine {
-  padding-left: 9px;
+  padding-left: 8px;
   display: flex;
   justify-content: space-around;
   .cardBox + .cardBox {
