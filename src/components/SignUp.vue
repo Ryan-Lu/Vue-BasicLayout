@@ -16,6 +16,10 @@
                     <el-option v-for="(item, index) in rememberPasswordList" :key="index"
                                :label="`区域${item}`" :value="item"></el-option>
                 </el-select>
+
+<!--                button 重置 点击之后 重置表单数据-->
+<!--                注册 点击之后 如果校验成功 就跳转 dashboard 如果失败 要弹出一个对话框-->
+<!--                告诉他校验失败 底下有一个按钮知道了 点击之后 对话框小时-->
             </el-form>
         </div>
 
