@@ -16,6 +16,10 @@
                     <el-option v-for="(item, index) in rememberPasswordList" :key="index"
                                :label="`区域${item}`" :value="item"></el-option>
                 </el-select>
+                <el-form-item>
+                    <el-button type="primary text" @click="submitForm('form')" >提交</el-button>
+                    <el-button @click="resetForm('form')">重置</el-button>
+                </el-form-item>
 
 <!--                button 重置 点击之后 重置表单数据-->
 <!--                注册 点击之后 如果校验成功 就跳转 dashboard 如果失败 要弹出一个对话框-->
@@ -28,6 +32,7 @@
 </template>
 
 <script>
+
     export default {
         data () {
             const checkConfirmPassword = (rule, value, callback) => {
@@ -73,6 +78,30 @@
                     '5',
                     '6',
                 ]
+            },
+            open() {
+                this.$alert('填写信息有误', '提示', {
+                    confirmButtonText: '知道了',
+                    callback: action => {
+                        if (action === 'confirm') {
+                            this.resetForm('form')
+                        } else {
+                            this.$message.error('你点了取消');
+                        }
+                    }
+                })
+            },
+            submitForm(form) {
+                this.$refs[form].validate((valid) => {
+                    if (valid) {
+                        this.$router.push('/app/dashboard')
+                    } else {
+                        this.open()
+                    }
+                });
+            },
+            resetForm(form) {
+                this.$refs[form].resetFields();
             }
         }
     };
