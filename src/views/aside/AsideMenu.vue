@@ -11,25 +11,25 @@
         active-text-color="#fff"
         :router="true"
       >
-        <el-menu-item index="/dashboard">
+        <el-menu-item index="/app/dashboard">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-dashboard" />
           </svg>
           <span slot="title">Dashboard</span>
         </el-menu-item>
-        <el-menu-item index="/monitor">
+        <el-menu-item index="/app/monitor">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-focus1" />
           </svg>
           <span slot="title">Monitor</span>
         </el-menu-item>
-        <el-menu-item index="/task-list">
+        <el-menu-item index="/app/task-list">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-task-list" />
           </svg>
           <span slot="title">Task List</span>
         </el-menu-item>
-        <el-menu-item index="settings">
+        <el-menu-item index="/app/settings">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-setting" />
           </svg>
