@@ -26,6 +26,13 @@
 <script>
     export default {
         data () {
+            const checkConfirmPassword = (rule, value, callback) => {
+                if (this.form.password === value) {
+                    callback()
+                } else {
+                    callback(new Error('你没有通过我的校验'))
+                }
+            };
             return {
                 rememberPasswordList: [],
                 form: {
@@ -43,6 +50,7 @@
                     ],
                     confirmPassword: [
                         { required: true, message: '你必须重复输入密码', trigger: 'blur' },
+                        { validator: checkConfirmPassword, trigger: 'blur'},
                     ]
                 }
             }
