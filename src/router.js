@@ -9,10 +9,17 @@ import TaskList from './components/TaskList'
 import Settings from './components/Settings'
 import UserSignIn from './components/SignIn'
 import UserSignUp from './components/SignUp'
+import NotFound from './views/404'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 Vue.use(VueRouter)
 
 const routes = [
+    {
+        path: '/',
+        redirect: '/app/dashboard'
+    },
     {
         path: '/user',
         component: UserLayout,
@@ -38,14 +45,25 @@ const routes = [
             { path: '/app/task-list', component: TaskList },
             { path: '/app/settings', component: Settings },
         ]
+    },
+    {
+        path: '*',
+        name: '404',
+        component: NotFound
     }
 ]
 
 
-export default new VueRouter({
+const myRouter = new VueRouter({
     routes // (缩写) 相当于 routes: routes
 })
 
-// 404
-// 添加 n progress
-// 添加 / 跳转
+myRouter.beforeEach((to, from, next) => {
+    NProgress.start()
+    next()
+})
+myRouter.afterEach(() => {
+    NProgress.done()
+})
+
+export  default myRouter
