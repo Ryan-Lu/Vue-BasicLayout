@@ -49,8 +49,8 @@ export default {
       this.loading = true;
       request
         .ajax({
-          //   url: "/test/exception",
-          url: "/table/list",
+            url: "/test/exception",
+          // url: "/table/list",
           data: { params: { page: this.pageNo, pageSize: this.pageSize } }
         })
         .then(response => {
@@ -59,7 +59,7 @@ export default {
           this.tableData = response.data.items;
         })
         .catch(() => {
-          this.loading = flase;
+          this.loading = false;
         });
     }
   }
