@@ -12,10 +12,10 @@
                     <el-input v-model="form.confirmPassword" type="password"></el-input>
                 </el-form-item>
 
-                <el-select v-model="form.rememberPassword" placeholder="请选择记住密码的选项">
-                    <el-option v-for="(item, index) in rememberPasswordList" :key="index"
-                               :label="`区域${item}`" :value="item"></el-option>
-                </el-select>
+<!--                <el-select v-model="form.rememberPassword" placeholder="请选择记住密码的选项">-->
+<!--                    <el-option v-for="(item, index) in rememberPasswordList" :key="index"-->
+<!--                               :label="`区域${item}`" :value="item"></el-option>-->
+<!--                </el-select>-->
                 <el-form-item>
                     <el-button type="primary text" @click="submitForm('form')" >提交</el-button>
                     <el-button @click="resetForm('form')">重置</el-button>
@@ -27,7 +27,7 @@
             </el-form>
         </div>
 
-        {{form}}
+<!--        {{form}}-->
     </div>
 </template>
 

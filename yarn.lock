@@ -1950,6 +1950,13 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000980, caniuse-lite@^1.0.30000984:
   resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000985.tgz#0eb40f6c8a8c219155cbe43c4975c0efb4a0f77f"
   integrity sha1-DrQPbIqMIZFVy+Q8SXXA77Sg938=
 
+canvas-nest.js@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/canvas-nest.js/download/canvas-nest.js-2.0.4.tgz#e010075d5dbbf3cbfc1ef18942c266b1af873469"
+  integrity sha1-4BAHXV2788v8HvGJQsJmsa+HNGk=
+  dependencies:
+    size-sensor "^0.2.0"
+
 case-sensitive-paths-webpack-plugin@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npm.taobao.org/case-sensitive-paths-webpack-plugin/download/case-sensitive-paths-webpack-plugin-2.2.0.tgz#3371ef6365ef9c25fa4b81c16ace0e9c7dc58c3e"
@@ -5556,6 +5563,11 @@ npmlog@^4.0.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/nprogress/download/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha1-y480xTIT2JVyP8urkH6UIq28r7E=
+
 nth-check@^1.0.2, nth-check@~1.0.1:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/nth-check/download/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
@@ -7167,6 +7179,11 @@ simple-swizzle@^0.2.2:
   integrity sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo=
   dependencies:
     is-arrayish "^0.3.1"
+
+size-sensor@^0.2.0:
+  version "0.2.5"
+  resolved "https://registry.npm.taobao.org/size-sensor/download/size-sensor-0.2.5.tgz#e8ffb7cc5258893472bfda4f5734d66583247757"
+  integrity sha1-6P+3zFJYiTRyv9pPVzTWZYMkd1c=
 
 slash@^1.0.0:
   version "1.0.0"

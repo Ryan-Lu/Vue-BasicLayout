@@ -61,7 +61,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   h1 {
     padding-left: 20px;
   }
