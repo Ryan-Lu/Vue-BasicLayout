@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { message, Message } from 'element-ui'
-// import { reject } from 'q';
+import { Message } from 'element-ui'
 
 export default class Axios {
     static ajax(options) {
