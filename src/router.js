@@ -59,11 +59,20 @@ const myRouter = new VueRouter({
 })
 
 myRouter.beforeEach((to, from, next) => {
-    NProgress.start()
-    next()
+    if (to.path !== from.path) {
+        NProgress.start()
+    }
+    const currentUser = localStorage.getItem('currentUser')
+    const whiteSpace = ['/user/signin', '/user/signup']
+    
+    if ((!currentUser) && (!whiteSpace.includes(to.path.toLocaleLowerCase()))) {
+        next({ path: '/user/signIn' })
+    } else {
+        next()
+    }
 })
 myRouter.afterEach(() => {
     NProgress.done()
 })
 
-export  default myRouter
+export default myRouter
