@@ -9,7 +9,7 @@
       <el-container>
         <el-main>
           <div class="dropBox">
-            <el-dropdown class="logoutBox">
+            <el-dropdown class="logoutBox" @command="onClickLogout">
               <span class="el-dropdown-link">
                 <div class="first-title">
                   <span>{{getUserInfo.userName}}</span>
@@ -49,25 +49,29 @@ export default {
     ...mapGetters(["getUserInfo"])
   },
   methods: {
-    onClickSignIn() {
+    onClickLogout() {
       const r = { path: "/user/signIn" };
       this.$router.push(r);
     },
-    onClickSignUp() {
-      this.btnLoading = true;
-      setTimeout(() => {
-        this.btnLoading = false;
-        // 1
-        // this.$router.push('/user/signIn')
-        // 2
-        const r = { name: "signUpPage" };
-        this.$router.push(r);
-        // 3
-        // this.$router.push({
-        //  path: '/user/signUp'
-        // })
-      }, 500);
-    }
+    // onClickSignIn() {
+    //   const r = { path: "/user/signIn" };
+    //   this.$router.push(r);
+    // },
+    // onClickSignUp() {
+    //   this.btnLoading = true;
+    //   setTimeout(() => {
+    //     this.btnLoading = false;
+    //     // 1
+    //     // this.$router.push('/user/signIn')
+    //     // 2
+    //     const r = { name: "signUpPage" };
+    //     this.$router.push(r);
+    //     // 3
+    //     // this.$router.push({
+    //     //  path: '/user/signUp'
+    //     // })
+    //   }, 500);
+    // }
   }
 };
 </script>
