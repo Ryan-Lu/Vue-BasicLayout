@@ -24,7 +24,7 @@
         <!--                告诉他校验失败 底下有一个按钮知道了 点击之后 对话框小时-->
       </el-form>
       <div class="btnBox">
-        <div class=" gray signInLabel">去登陆</div>
+        <div class="gray signInLabel">去登陆</div>
         <el-button type="text" class="gray toSignIn">登陆</el-button>
       </div>
     </div>
@@ -47,8 +47,7 @@ export default {
       form: {
         username: "",
         password: "",
-        confirmPassword: "",
-        rememberPassword: "4"
+        confirmPassword: ""
       },
       formRules: {
         username: [
@@ -87,7 +86,20 @@ export default {
     submitForm(form) {
       this.$refs[form].validate(valid => {
         if (valid) {
-          this.$router.push("/app/dashboard");
+            // localstorage userList push form
+            let oldUserList = localStorage.getItem('userList')
+            oldUserList = JSON.parse(oldUserList)
+            if (!oldUserList) {
+                oldUserList = []
+            }
+            //  判断是否重名
+
+            oldUserList.push(this.form)
+            const newUserList = JSON.stringify(oldUserList)
+            console.log(newUserList)
+            localStorage.setItem('userList', newUserList)
+            // localstorage currentUser = form
+        //   this.$router.push("/app/dashboard");
         } else {
           this.open();
         }
@@ -116,19 +128,18 @@ export default {
     width: 100%;
   }
   .btnBox {
-      margin-left: 4px;
+    margin-left: 4px;
     .signInLabel {
       font-size: 14px;
       color: #aeb0b4;
-  }
-  .toSignIn {
-    &:hover {
-      color: #aeb0b4;
     }
-    font-size: 13px;
-    font-weight: normal;
+    .toSignIn {
+      &:hover {
+        color: #aeb0b4;
+      }
+      font-size: 13px;
+      font-weight: normal;
+    }
   }
-  }
-  
 }
 </style>
