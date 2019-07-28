@@ -50,6 +50,7 @@ export default {
   },
   methods: {
     onClickLogout() {
+      localStorage.removeItem('currentUser')
       const r = { path: "/user/signIn" };
       this.$router.push(r);
     },
