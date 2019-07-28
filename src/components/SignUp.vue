@@ -95,7 +95,13 @@ export default {
             //  判断是否重名
             // 1. 找到系统所有的用户名
             const nameList = oldUserList.map(item => item.username)
+            const newName = this.form.username
             console.log(nameList)
+            if (nameList.includes(newName)){
+                console.log('找到了')
+                return
+            }
+            console.log('没找到')
 
             oldUserList.push(this.form)
             const newUserList = JSON.stringify(oldUserList)
