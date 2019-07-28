@@ -35,6 +35,15 @@
 <script>
 export default {
   data() {
+    const checkUsername = (rule, value, callback) => {
+        console.log(this.usernameError)
+      if (!this.usernameError) {
+        callback();
+      } else {
+        this.usernameError = false;
+        callback(new Error("这个用户名已经被注册过了"));
+      }
+    };
     const checkConfirmPassword = (rule, value, callback) => {
       if (this.form.password === value) {
         callback();
@@ -44,6 +53,7 @@ export default {
     };
     return {
       rememberPasswordList: [],
+      usernameError: false,
       form: {
         username: "",
         password: "",
@@ -51,7 +61,8 @@ export default {
       },
       formRules: {
         username: [
-          { required: true, message: "你必须输入用户名", trigger: "blur" }
+          { required: true, message: "你必须输入用户名", trigger: "blur" },
+          { validator: checkUsername, trigger: "blur" }
         ],
         password: [
           { required: true, message: "你必须输入密码", trigger: "blur" }
@@ -86,31 +97,30 @@ export default {
     submitForm(form) {
       this.$refs[form].validate(valid => {
         if (valid) {
-            // localstorage userList push form
-            let oldUserList = localStorage.getItem('userList')
-            oldUserList = JSON.parse(oldUserList)
-            if (!oldUserList) {
-                oldUserList = []
-            }
-            //  判断是否重名
-            // 1. 找到系统所有的用户名
-            const nameList = oldUserList.map(item => item.username)
-            const newName = this.form.username
-            console.log(nameList)
-            if (nameList.includes(newName)){
-                console.log('找到了')
-                return
-            }
-            console.log('没找到')
+          // localstorage userList push form
+          let oldUserList = localStorage.getItem("userList");
+          oldUserList = JSON.parse(oldUserList);
+          if (!oldUserList) {
+            oldUserList = [];
+          }
+          //  判断是否重名
+          // 1. 找到系统所有的用户名
+          const nameList = oldUserList.map(item => item.username);
+          const newName = this.form.username;
 
-            oldUserList.push(this.form)
-            const newUserList = JSON.stringify(oldUserList)
-            console.log(newUserList)
-            localStorage.setItem('userList', newUserList)
-            // localstorage currentUser = form
-        //   this.$router.push("/app/dashboard");
-        } else {
-          this.open();
+          if (nameList.includes(newName)) {
+            this.usernameError = true;
+            this.$refs[form].validate();
+            return;
+          }
+          console.log("没找到");
+
+          oldUserList.push(this.form);
+          const newUserList = JSON.stringify(oldUserList);
+          console.log(newUserList);
+          localStorage.setItem("userList", newUserList);
+          // localstorage currentUser = form
+          //   this.$router.push("/app/dashboard");
         }
       });
     },
