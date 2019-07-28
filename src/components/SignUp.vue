@@ -36,7 +36,7 @@
 export default {
   data() {
     const checkUsername = (rule, value, callback) => {
-        console.log(this.usernameError)
+      console.log(this.usernameError);
       if (!this.usernameError) {
         callback();
       } else {
@@ -120,7 +120,8 @@ export default {
           console.log(newUserList);
           localStorage.setItem("userList", newUserList);
           // localstorage currentUser = form
-          //   this.$router.push("/app/dashboard");
+          localStorage.setItem("currentUser", JSON.stringify(this.form));
+          this.$router.push("/app/dashboard");
         }
       });
     },
