@@ -1,10 +1,9 @@
 <template>
   <div class="dashboard">
-    <div class="first-title">
-      <h1>Disk Monitoring</h1>
-      <span>{{getUserInfo.userName}}</span>
-      <img class="top-avatar" :src="getUserInfo.avatarUrl" alt />
-    </div>
+    
+      <h1 class="dashTitle">Disk Monitoring</h1>
+      
+    
     <div class="cardLine">
       <div class="cardBox">
         <Card
@@ -44,7 +43,7 @@
       </div>
     </div>
     <div class="second-title">
-      <h1>IO Utilization</h1>
+      <h1 class="dashTitle">IO Utilization</h1>
     </div>
     <div class="line-chart" ref="chartDom"></div>
   </div>
@@ -331,23 +330,15 @@ export default {
     width: 20%;
   }
 }
-.top-avatar {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  float: right;
-  margin: 28px 10px;
-  box-shadow: rgba(96, 96, 172, 0.8) 0px 0px 1px 2px;
-}
-h1 {
+h1.dashTitle {
   font-size: 24px;
   font-weight: normal;
   display: inline-block;
+  padding-left: 20px;
+  margin-top: 0;
 }
-.first-title > span {
-  float: right;
-  padding: 30px 30px 0 0;
-  font-size: 14px;
+.second-title .dashTitle {
+  margin-top: 24px;
 }
 .line-chart {
   width: 1050px;
