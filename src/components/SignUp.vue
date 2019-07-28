@@ -25,7 +25,7 @@
       </el-form>
       <div class="btnBox">
         <div class="gray signInLabel">去登陆</div>
-        <el-button type="text" class="gray toSignIn">登陆</el-button>
+        <el-button type="text" class="gray toSignIn" @click="$router.push('/user/signIn')">登陆</el-button>
       </div>
     </div>
     <!--        {{form}}-->

@@ -15,7 +15,7 @@
       </el-form>
       <div class="btnBox">
         <div class="gray signInLabel">去注册</div>
-        <el-button type="text" class="gray toSignIn">注册</el-button>
+        <el-button type="text" class="gray toSignIn" @click="$router.push('/user/signUp')">注册</el-button>
       </div>
     </div>
   </div>
@@ -59,8 +59,12 @@ export default {
               // 设置 currentUser
               localStorage.setItem("currentUser", JSON.stringify(this.form));
               this.$router.push("/app/dashboard");
+               this.$message.success('登陆成功');
+              return
             }
           }
+
+          this.$message.error('用户名密码错误'); // 可以考虑做成表单校验
         }
       });
     }
