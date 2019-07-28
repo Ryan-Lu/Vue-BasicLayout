@@ -8,11 +8,10 @@
         <el-form-item prop="password">
           <el-input v-model="form.password" type="password" placeholder="请输入密码"></el-input>
         </el-form-item>
-    
+
         <el-form-item>
           <el-button class="signupBtn" type="primary text" @click="submitForm('form')">登陆</el-button>
         </el-form-item>
-
       </el-form>
       <div class="btnBox">
         <div class="gray signInLabel">去注册</div>
@@ -28,11 +27,11 @@ export default {
     return {
       form: {
         username: "",
-        password: "",
+        password: ""
       },
       formRules: {
         username: [
-          { required: true, message: "你必须输入用户名", trigger: "blur" },
+          { required: true, message: "你必须输入用户名", trigger: "blur" }
         ],
         password: [
           { required: true, message: "你必须输入密码", trigger: "blur" }
@@ -44,31 +43,24 @@ export default {
     submitForm(form) {
       this.$refs[form].validate(valid => {
         if (valid) {
-          // localstorage userList push form
-          let oldUserList = localStorage.getItem("userList");
-          oldUserList = JSON.parse(oldUserList);
-          if (!oldUserList) {
-            oldUserList = [];
+          // 判断能不能登陆成功
+          // 取出 userList
+          let userList = localStorage.getItem("userList");
+          userList = JSON.parse(userList);
+          if (!userList) {
+            userList = [];
           }
-          //  判断是否重名
-          // 1. 找到系统所有的用户名
-          const nameList = oldUserList.map(item => item.username);
-          const newName = this.form.username;
 
-          if (nameList.includes(newName)) {
-            this.usernameError = true;
-            this.$refs[form].validate();
-            return;
+          const { form } = this;
+
+          for (let i = 0; i < userList.length; i++) {
+            const { username, password } = userList[i];
+            if (form.username === username && form.password === password) {
+              // 设置 currentUser
+              localStorage.setItem("currentUser", JSON.stringify(this.form));
+              this.$router.push("/app/dashboard");
+            }
           }
-          console.log("没找到");
-
-          oldUserList.push(this.form);
-          const newUserList = JSON.stringify(oldUserList);
-          console.log(newUserList);
-          localStorage.setItem("userList", newUserList);
-          // localstorage currentUser = form
-          localStorage.setItem("currentUser", JSON.stringify(this.form));
-          this.$router.push("/app/dashboard");
         }
       });
     }
