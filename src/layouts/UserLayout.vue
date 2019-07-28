@@ -1,9 +1,7 @@
 <template>
     <div ref="box" style="height: 100vh;">
+        
         <el-container>
-            <el-header>
-
-            </el-header>
             <el-main>
                 <div class="formBox">
                     <router-view></router-view>
