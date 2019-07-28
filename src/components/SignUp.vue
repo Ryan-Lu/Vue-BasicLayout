@@ -93,6 +93,9 @@ export default {
                 oldUserList = []
             }
             //  判断是否重名
+            // 1. 找到系统所有的用户名
+            const nameList = oldUserList.map(item => item.username)
+            console.log(nameList)
 
             oldUserList.push(this.form)
             const newUserList = JSON.stringify(oldUserList)
